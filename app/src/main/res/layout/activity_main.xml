@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v4.widget.SwipeRefreshLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/swipeRefresh"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:background="#bb8855"
+            android:text="Chucky Jokes!"
+            android:textSize="26sp"
+            android:textColor="#f0f0f0"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="70dp" />
+        
+        <TextView
+            android:layout_margin="40dp"
+            android:id="@+id/textView"
+            android:textSize="16sp"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Hello World!" />
+
+    </RelativeLayout>
+
+</android.support.v4.widget.SwipeRefreshLayout>
