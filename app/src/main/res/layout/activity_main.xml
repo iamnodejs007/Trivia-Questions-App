@@ -9,6 +9,60 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <Spinner
+            android:id="@+id/difficultySpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/difficultyText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="20dp" />
+
+        <Spinner
+            android:id="@+id/questionsSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/questionsText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:id="@+id/questionsText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/textView2"
+            android:layout_marginTop="21dp"
+            android:gravity="center"
+            android:text="Number of questions:"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/typeText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Type:"
+            android:textSize="24sp"
+            android:layout_below="@+id/difficultySpinner"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="59dp" />
+
+        <TextView
+            android:id="@+id/difficultyText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/questionsSpinner"
+            android:layout_marginTop="45dp"
+            android:gravity="center"
+            android:text="Difficulty"
+            android:textSize="24sp" />
+
         <TextView
             android:background="#bb8855"
             android:text="Chucky Jokes!"
@@ -17,17 +71,30 @@
             android:textStyle="bold"
             android:gravity="center"
             android:layout_width="match_parent"
-            android:layout_height="70dp" />
-        
-        <TextView
-            android:layout_margin="40dp"
-            android:id="@+id/textView"
-            android:textSize="16sp"
-            android:gravity="center"
+            android:layout_height="70dp"
+            android:id="@+id/textView2" />
+
+
+        <Button
+            android:id="@+id/startButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:text="Hello World!" />
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="24dp"
+            android:layout_marginLeft="48dp"
+            android:layout_marginStart="48dp"
+            android:layout_toEndOf="@+id/difficultyText"
+            android:layout_toRightOf="@+id/difficultyText"
+            android:text="Start game!" />
+
+        <Spinner
+            android:id="@+id/typeSpinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_below="@+id/typeText"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 
