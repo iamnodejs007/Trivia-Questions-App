@@ -1,2 +1,0 @@
-# chucky
-chucky android application
