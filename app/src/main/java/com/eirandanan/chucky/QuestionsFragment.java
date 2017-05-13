@@ -68,7 +68,7 @@ public class QuestionsFragment extends Fragment {
                     } else {
                         Toast.makeText(getContext(), "Incorrect Answer!", Toast.LENGTH_LONG).show();
                     }
-                    ((QuestionsActivity)getActivity()).pressNextQuestion();
+                    ((QuestionsActivity)getActivity()).getNextQuestion();
 
                     break;
 
@@ -78,7 +78,7 @@ public class QuestionsFragment extends Fragment {
                     } else {
                         Toast.makeText(getContext(), "Incorrect Answer!", Toast.LENGTH_LONG).show();
                     }
-                    ((QuestionsActivity)getActivity()).pressNextQuestion();
+                    ((QuestionsActivity)getActivity()).getNextQuestion();
 
                     break;
             }

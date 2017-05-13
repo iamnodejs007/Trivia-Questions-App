@@ -61,31 +61,30 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
                                     QuestionsFragment.getInstance(questions[stage - 1], correctAnswer[stage - 1])).
                             commit();
 
-                    pressNextQuestion();
+                    findViewById(R.id.nextBtn).setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            getNextQuestion();
+                        }
+                    });
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
     }
-    public void pressNextQuestion(){
-        findViewById(R.id.nextBtn).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (stage < Integer.parseInt(numOfQuestions)) {
-                    stage++;
-                    ((TextView) findViewById(R.id.stage)).
-                            setText(stage + "/" + Integer.parseInt(numOfQuestions));
-                    getSupportFragmentManager().
-                            beginTransaction().
-                            replace(R.id.bottom,
-                                    QuestionsFragment.getInstance(questions[stage - 1], correctAnswer[stage - 1])).
-                            commit();
-                } else {
-                    findViewById(R.id.nextBtn).setEnabled(false);
-                }
-
-            }
-        });
+    public void getNextQuestion(){
+        if (stage < Integer.parseInt(numOfQuestions)) {
+            stage++;
+            ((TextView) findViewById(R.id.stage)).
+                    setText(stage + "/" + Integer.parseInt(numOfQuestions));
+            getSupportFragmentManager().
+                    beginTransaction().
+                    replace(R.id.bottom,
+                            QuestionsFragment.getInstance(questions[stage - 1], correctAnswer[stage - 1])).
+                    commit();
+        } else {
+            findViewById(R.id.nextBtn).setEnabled(false);
+        }
     }
 }
