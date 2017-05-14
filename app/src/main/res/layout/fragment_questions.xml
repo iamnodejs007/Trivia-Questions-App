@@ -7,25 +7,11 @@
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="92dp"
         android:fontFamily="sans-serif-smallcaps"
         android:text="@string/hello_blank_fragment"
-        android:textSize="24sp"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="38dp"
-        android:layout_marginStart="38dp" />
-    <RadioGroup
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/RGroup"
-        android:layout_marginTop="189dp"
-        android:layout_alignParentTop="true"
-        android:layout_alignLeft="@+id/question"
-        android:layout_alignStart="@+id/question"
-        android:layout_marginLeft="65dp"
-        android:layout_marginStart="65dp">
+        android:textSize="24sp" />
+
 
         <RadioButton
             android:id="@+id/trueButton"
@@ -35,8 +21,7 @@
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginLeft="36dp"
-            android:layout_marginStart="36dp"
-            android:layout_marginTop="87dp"
+            android:layout_marginTop="100dp"
             android:text="True" />
 
 
@@ -44,11 +29,7 @@
             android:id="@+id/falseButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignBottom="@+id/RGroup"
-            android:layout_marginLeft="82dp"
-            android:layout_marginStart="82dp"
-            android:layout_toEndOf="@+id/RGroup"
-            android:layout_toRightOf="@+id/RGroup"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="160dp"
             android:text="False" />
-    </RadioGroup>
 </RelativeLayout>

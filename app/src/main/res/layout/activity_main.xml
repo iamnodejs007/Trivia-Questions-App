@@ -64,28 +64,26 @@
             android:textSize="24sp" />
 
         <TextView
-            android:background="#bb8855"
-            android:text="Chucky Jokes!"
-            android:textSize="26sp"
-            android:textColor="#f0f0f0"
-            android:textStyle="bold"
-            android:gravity="center"
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="70dp"
-            android:id="@+id/textView2" />
+            android:background="#bb8855"
+            android:gravity="center"
+            android:text="Trivia Questions App!"
+            android:textColor="#f0f0f0"
+            android:textSize="26sp"
+            android:textStyle="bold" />
 
 
         <Button
             android:id="@+id/startButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_marginBottom="24dp"
-            android:layout_marginLeft="48dp"
-            android:layout_marginStart="48dp"
-            android:layout_toEndOf="@+id/difficultyText"
-            android:layout_toRightOf="@+id/difficultyText"
-            android:text="Start game!" />
+            android:text="Start game!"
+            android:layout_below="@+id/typeSpinner"
+            android:layout_alignRight="@+id/questionsText"
+            android:layout_alignEnd="@+id/questionsText"
+            android:layout_marginTop="49dp" />
 
         <Spinner
             android:id="@+id/typeSpinner"

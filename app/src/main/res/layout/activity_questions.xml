@@ -21,25 +21,20 @@
             android:id="@+id/stage"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center" />
+            android:gravity="center"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
 
     </RelativeLayout>
 
     <LinearLayout
-        android:background="#727272"
         android:id="@+id/bottom"
-        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="3"
-        android:layout_width="match_parent"
-        android:layout_height="0dp">
-    </LinearLayout>
-
-    <Button
-        android:id="@+id/nextBtn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="#55bb88"
-        android:text="next"
-        android:textColor="#fff" />
+        android:background="@android:color/darker_gray"
+        android:orientation="vertical"
+        android:touchscreenBlocksFocus="false"></LinearLayout>
 
 </LinearLayout>
