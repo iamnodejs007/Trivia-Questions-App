@@ -25,6 +25,10 @@ public class MultipleQuestionsFragment extends Fragment {
         b.putString("question", question);
         b.putString("correctAnswer", correctAnswer);
         b.putString("wrongAnswer1", wrongAnswer1);
+        Log.i("dsa2",wrongAnswer1);
+        Log.i("dsa2",wrongAnswer2);
+        Log.i("dsa2",wrongAnswer3);
+
         b.putString("wrongAnswer2", wrongAnswer2);
         b.putString("wrongAnswer3", wrongAnswer3);
 
@@ -45,7 +49,7 @@ public class MultipleQuestionsFragment extends Fragment {
 
         TextView tv = (TextView) v.findViewById(R.id.question);
         tv.setText(getArguments().getString("question"));
-        int correctAnswerPlacement = (int) Math.random() * 4 + 1;
+        int correctAnswerPlacement = (int) (Math.random() * 4 + 1);
         switch (correctAnswerPlacement) {
             case 1:
                 setAnswerButton(v,getArguments().getString("correctAnswer"),"1");

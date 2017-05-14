@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
 public class QuestionsActivity extends AppCompatActivity  implements QuestionsFragment.QuestionFragmentActivity {
-    private int stage = 1;
+    private int stage = 1,counter=0;
     private final int QUESTIONS_MAX = 10;
     private String[] questions = new String[QUESTIONS_MAX];
     private String[] correctAnswer = new String[QUESTIONS_MAX];
@@ -75,15 +75,20 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
     public void getNextQuestion() {
         if (stage < Integer.parseInt(numOfQuestions)) {
             stage++;
+
             ((TextView) findViewById(R.id.stage)).
                     setText(stage + "/" + Integer.parseInt(numOfQuestions));
             if(type.equalsIgnoreCase("multiple")) {
+                counter++;
+
+                Log.i("dsa3",incorrectAnswers[counter*3] + " " + incorrectAnswers[counter*3+1] + " " + incorrectAnswers[counter*3+2]);
+
                 getSupportFragmentManager().
                         beginTransaction().
                         replace(R.id.bottom,
                                 MultipleQuestionsFragment.getInstance(questions[stage - 1], correctAnswer[stage - 1],
-                                        incorrectAnswers[stage-1],incorrectAnswers[stage],
-                                        incorrectAnswers[stage+1])).
+                                        incorrectAnswers[counter*3],incorrectAnswers[counter*3+1],
+                                        incorrectAnswers[counter*3+2])).
                         commit();
             } else {
                 getSupportFragmentManager().
@@ -103,8 +108,8 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
             if (type.equalsIgnoreCase("multiple")) {
                 JSONArray incorrect_answers = results.getJSONObject(i).getJSONArray("incorrect_answers");
                 for (int j = 0; j < 3; j++) {
-                    incorrectAnswers[j] = incorrect_answers.getString(j).toString();
-                    Log.i("dsa",incorrectAnswers[j]);
+                    incorrectAnswers[i*3+j] = incorrect_answers.getString(j).toString();
+                    Log.i("dsa",i*3+j + " " + incorrectAnswers[i*3+j]);
                 }
             }
         }
