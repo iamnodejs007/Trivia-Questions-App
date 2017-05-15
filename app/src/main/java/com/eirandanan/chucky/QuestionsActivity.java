@@ -25,9 +25,7 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_questions);
-        numOfQuestions = getIntent().getStringExtra("numOfQuestions").toLowerCase();
-        difficulty = getIntent().getStringExtra("difficulty").toLowerCase();
-        type = getIntent().getStringExtra("type").toLowerCase();
+        turnInfoToLower();
         getJokes();
     }
 
@@ -81,7 +79,7 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
             if(type.equalsIgnoreCase("multiple")) {
                 counter++;
 
-                Log.i("dsa3",incorrectAnswers[counter*3] + " " + incorrectAnswers[counter*3+1] + " " + incorrectAnswers[counter*3+2]);
+                Log.i("nextQuestions",incorrectAnswers[counter*3] + " " + incorrectAnswers[counter*3+1] + " " + incorrectAnswers[counter*3+2]);
 
                 getSupportFragmentManager().
                         beginTransaction().
@@ -109,7 +107,7 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
                 JSONArray incorrect_answers = results.getJSONObject(i).getJSONArray("incorrect_answers");
                 for (int j = 0; j < 3; j++) {
                     incorrectAnswers[i*3+j] = incorrect_answers.getString(j).toString();
-                    Log.i("dsa",i*3+j + " " + incorrectAnswers[i*3+j]);
+                    Log.i("incorrectAnswer",i*3+j + " " + incorrectAnswers[i*3+j]);
                 }
             }
         }
@@ -118,5 +116,14 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
     private void updateStage() {
         ((TextView) findViewById(R.id.stage)).
                 setText(stage + "/" + Integer.parseInt(numOfQuestions));
+    }
+    // gets info and turn it to lowercase
+    private void turnInfoToLower(){
+        numOfQuestions = getIntent().getStringExtra("numOfQuestions").toLowerCase();
+        difficulty = getIntent().getStringExtra("difficulty").toLowerCase();
+        type = getIntent().getStringExtra("type").toLowerCase();
+    }
+    public int getNumberOfQuestionsRelatedToStage(){
+        return Integer.parseInt(numOfQuestions) - stage;
     }
 }
