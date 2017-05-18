@@ -1,4 +1,4 @@
-package com.eirandanan.chucky;
+package com.saif.chucky;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,7 +8,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Spinner;
-import android.widget.Toast;
 
 
 
@@ -33,7 +32,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
             @Override
             public void onClick(View v) {
-                Toast.makeText(MainActivity.this,choosenDifficulty + " " + choosenNumOfQuestions + " " + choosenType,Toast.LENGTH_LONG).show();
                 Intent intent = new Intent(MainActivity.this, QuestionsActivity.class);
                 intent.putExtra("numOfQuestions",choosenNumOfQuestions);
                 intent.putExtra("difficulty",choosenDifficulty);

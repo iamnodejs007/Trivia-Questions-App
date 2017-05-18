@@ -2,7 +2,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.eirandanan.chucky.MultipleQuestionsFragment">
+    tools:context="com.saif.chucky.MultipleQuestionsFragment">
 
     <!-- TODO: Update blank fragment layout -->
 
@@ -11,7 +11,9 @@
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="92dp"
-        android:text="@string/hello_blank_fragment" />
+        android:fontFamily="monospace"
+        android:text="@string/hello_blank_fragment"
+        android:textSize="18sp" />
 
     <RadioButton
             android:id="@+id/answer2Button"

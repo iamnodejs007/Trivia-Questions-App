@@ -2,15 +2,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.eirandanan.chucky.QuestionsFragment">
+    tools:context="com.saif.chucky.QuestionsFragment">
 
     <TextView
         android:id="@+id/question"
         android:layout_width="match_parent"
         android:layout_height="92dp"
-        android:fontFamily="sans-serif-smallcaps"
+        android:fontFamily="monospace"
         android:text="@string/hello_blank_fragment"
-        android:textSize="24sp" />
+        android:textSize="18sp" />
 
 
         <RadioButton

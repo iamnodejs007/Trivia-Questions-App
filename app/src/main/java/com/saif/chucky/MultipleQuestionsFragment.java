@@ -1,6 +1,4 @@
-package com.eirandanan.chucky;
-
-
+package com.saif.chucky;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.os.Bundle;
@@ -56,17 +54,17 @@ public class MultipleQuestionsFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
+            Button b = (Button) v;
             if (((QuestionsActivity) getActivity()).getNumberOfQuestionsRelatedToStage() == 0) {
-                Handler handler= new Handler();
+                Handler handler = new Handler();
                 final Runnable r = new Runnable() {
                     public void run() {
-                        finishGameMessage();
+                        onModeFinished();
                     }
                 };
                 handler.postDelayed(r, 1000);
-
+                return;
             }
-            Button b = (Button) v;
             if (getArguments().getString("correctAnswer").equalsIgnoreCase(b.getText().toString())) {
                 ((QuestionsActivity) getActivity()).increaseScore();
                 Toast.makeText(getContext(), "Correct Answer!", Toast.LENGTH_LONG).show();
@@ -75,10 +73,6 @@ public class MultipleQuestionsFragment extends Fragment {
             }
             ((QuestionsActivity) getActivity()).getNextQuestion();
         }
-    }
-
-    public static interface QuestionFragmentActivity {
-        public void updateActivity(String s);
     }
 
     private void setAnswerButton(View v, String text, String answerNumber) {
@@ -120,17 +114,29 @@ public class MultipleQuestionsFragment extends Fragment {
         }
     }
 
-    private void finishGameMessage(){
+    private void onModeFinished() {
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder((QuestionsActivity) getActivity());
-        alertDialogBuilder.setMessage("Game over, Click Ok To Exit");
-        alertDialogBuilder.setPositiveButton("OK",
-                new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        getActivity().finish();
-                    }
-                });
 
+        if (!((QuestionsActivity) getActivity()).getDifficulty().equals("hard")) {
+            alertDialogBuilder.setMessage("Finished this mode, click OK to go to the next mode");
+            alertDialogBuilder.setPositiveButton("OK",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            ((QuestionsActivity) getActivity()).getNextDifficulty();
+                            ((QuestionsActivity) getActivity()).getQuestions();
+                        }
+                    });
+        } else {
+            alertDialogBuilder.setMessage("Finished the game(all modes), click OK to exit");
+            alertDialogBuilder.setPositiveButton("OK",
+                    new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            ((QuestionsActivity) getActivity()).finish();
+                        }
+                    });
+        }
         AlertDialog alertDialog = alertDialogBuilder.create();
         alertDialog.show();
     }

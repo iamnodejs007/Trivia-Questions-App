@@ -1,4 +1,4 @@
-package com.eirandanan.chucky;
+package com.saif.chucky;
 
 import org.junit.Test;
 

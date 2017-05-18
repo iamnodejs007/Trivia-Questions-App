@@ -1,4 +1,4 @@
-package com.eirandanan.chucky;
+package com.saif.chucky;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
