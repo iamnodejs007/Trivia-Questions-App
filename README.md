@@ -8,7 +8,12 @@ requires internet connection
 
 
 Images:
+
+Main screen: 
 ![First screen](https://github.com/saifcoding/chucky/blob/master/images/image1.png)
+
+Other screen:
+
 ![Second screen](https://github.com/saifcoding/chucky/blob/master/images/image2.png)
 
 created by Saif.
