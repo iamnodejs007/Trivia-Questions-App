@@ -68,6 +68,7 @@ public class MultipleQuestionsFragment extends Fragment {
             }
             Button b = (Button) v;
             if (getArguments().getString("correctAnswer").equalsIgnoreCase(b.getText().toString())) {
+                ((QuestionsActivity) getActivity()).increaseScore();
                 Toast.makeText(getContext(), "Correct Answer!", Toast.LENGTH_LONG).show();
             } else {
                 Toast.makeText(getContext(), "Incorrect Answer!", Toast.LENGTH_LONG).show();

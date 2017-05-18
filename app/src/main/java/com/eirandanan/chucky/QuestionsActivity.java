@@ -14,7 +14,7 @@ import org.json.JSONObject;
 import cz.msebera.android.httpclient.Header;
 
 public class QuestionsActivity extends AppCompatActivity  implements QuestionsFragment.QuestionFragmentActivity {
-    private int stage = 1,counter=0;
+    private int stage = 1,counter=0, score=0;
     private final int QUESTIONS_MAX = 10;
     private String[] questions = new String[QUESTIONS_MAX];
     private String[] correctAnswer = new String[QUESTIONS_MAX];
@@ -46,7 +46,7 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
                 try {
                     JSONArray results = response.getJSONArray("results");
                     readQuestionsAndAnswers(results);
-                    updateStage();
+                    updateViewTexts();
                     if (type.equals("multiple")) {
                         getSupportFragmentManager().
                                 beginTransaction().
@@ -76,6 +76,9 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
 
             ((TextView) findViewById(R.id.stage)).
                     setText(stage + "/" + Integer.parseInt(numOfQuestions));
+
+            ((TextView) findViewById(R.id.score)).
+                    setText("Score: " + score);
             if(type.equalsIgnoreCase("multiple")) {
                 counter++;
 
@@ -113,9 +116,15 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
         }
     }
 
-    private void updateStage() {
+    private void updateViewTexts() {
         ((TextView) findViewById(R.id.stage)).
                 setText(stage + "/" + Integer.parseInt(numOfQuestions));
+
+        ((TextView) findViewById(R.id.score)).
+                setText("Score: " + score);
+
+        ((TextView) findViewById(R.id.difficulty)).
+                setText("Difficulty: " + difficulty);
     }
     // gets info and turn it to lowercase
     private void turnInfoToLower(){
@@ -125,5 +134,10 @@ public class QuestionsActivity extends AppCompatActivity  implements QuestionsFr
     }
     public int getNumberOfQuestionsRelatedToStage(){
         return Integer.parseInt(numOfQuestions) - stage;
+    }
+
+
+    public void increaseScore() {
+        score++;
     }
 }

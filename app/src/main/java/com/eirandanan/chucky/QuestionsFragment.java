@@ -6,6 +6,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -55,27 +56,17 @@ public class QuestionsFragment extends Fragment {
 
         @Override
         public void onClick(View v) {
-            switch (v.getId()) {
-                case R.id.trueButton:
-                    if (getArguments().getString("correctAnswer").equalsIgnoreCase("True")) {
-                        Toast.makeText(getContext(), "Correct Answer!", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getContext(), "Incorrect Answer!", Toast.LENGTH_LONG).show();
-                    }
-                    ((QuestionsActivity) getActivity()).getNextQuestion();
+            Button b = (Button) v;
 
-                    break;
+            if (getArguments().getString("correctAnswer").equalsIgnoreCase(b.getText().toString())) {
+                Toast.makeText(getContext(), "Correct Answer!", Toast.LENGTH_LONG).show();
+                ((QuestionsActivity) getActivity()).increaseScore();
 
-                case R.id.falseButton:
-                    if (getArguments().getString("correctAnswer").equalsIgnoreCase("False")) {
-                        Toast.makeText(getContext(), "Correct Answer!", Toast.LENGTH_LONG).show();
-                    } else {
-                        Toast.makeText(getContext(), "Incorrect Answer!", Toast.LENGTH_LONG).show();
-                    }
-                    ((QuestionsActivity) getActivity()).getNextQuestion();
-
-                    break;
+            } else {
+                Toast.makeText(getContext(), "Incorrect Answer!", Toast.LENGTH_LONG).show();
             }
+            ((QuestionsActivity) getActivity()).getNextQuestion();
+
         }
     }
 
