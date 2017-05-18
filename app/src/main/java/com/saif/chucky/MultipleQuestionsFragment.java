@@ -55,8 +55,8 @@ public class MultipleQuestionsFragment extends Fragment {
         @Override
         public void onClick(View v) {
             Button b = (Button) v;
+            Handler handler = new Handler();
             if (((QuestionsActivity) getActivity()).getNumberOfQuestionsRelatedToStage() == 0) {
-                Handler handler = new Handler();
                 final Runnable r = new Runnable() {
                     public void run() {
                         onModeFinished();
@@ -71,7 +71,13 @@ public class MultipleQuestionsFragment extends Fragment {
             } else {
                 Toast.makeText(getContext(), "Incorrect Answer!", Toast.LENGTH_LONG).show();
             }
-            ((QuestionsActivity) getActivity()).getNextQuestion();
+            final Runnable r2 = new Runnable() {
+                public void run() {
+                    ((QuestionsActivity) getActivity()).getNextQuestion();
+
+                }
+            };
+            handler.postDelayed(r2, 1100);
         }
     }
 

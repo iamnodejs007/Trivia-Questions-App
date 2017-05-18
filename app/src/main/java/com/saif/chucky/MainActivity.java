@@ -12,9 +12,9 @@ import android.widget.Spinner;
 
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
-   private final String [] difficulty = {"Easy","Medium","Hard"};
-    private final String [] type = {"Multiple", "Boolean"};
-    private final String [] numOfQuestions = {"5","6","7","8","9","10"};
+    private final String[] difficulty = {"Easy", "Medium", "Hard"};
+    private final String[] type = {"Multiple", "Boolean"};
+    private final String[] numOfQuestions = {"5", "6", "7", "8", "9", "10"};
     private String choosenDifficulty, choosenType, choosenNumOfQuestions;
     private Button startButton;
 
@@ -27,20 +27,19 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         initalizeSpinners(difficulty, R.id.difficultySpinner);
         initalizeSpinners(type, R.id.typeSpinner);
         initalizeSpinners(numOfQuestions, R.id.questionsSpinner);
-        startButton = (Button)findViewById(R.id.startButton);
+        startButton = (Button) findViewById(R.id.startButton);
         startButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, QuestionsActivity.class);
-                intent.putExtra("numOfQuestions",choosenNumOfQuestions);
-                intent.putExtra("difficulty",choosenDifficulty);
-                intent.putExtra("type",choosenType);
+                intent.putExtra("numOfQuestions", choosenNumOfQuestions);
+                intent.putExtra("difficulty", choosenDifficulty);
+                intent.putExtra("type", choosenType);
                 startActivity(intent);
             }
         });
     }
-
 
 
     public void initalizeSpinners(String[] objects, int id) {
@@ -59,11 +58,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         // attaching data adapter to spinner
         spinner.setAdapter(dataAdapter);
     }
+
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
 
         // Showing selected spinner item
-        switch(parent.getId()) {
+        switch (parent.getId()) {
             case R.id.difficultySpinner:
                 choosenDifficulty = parent.getItemAtPosition(position).toString();
                 break;
